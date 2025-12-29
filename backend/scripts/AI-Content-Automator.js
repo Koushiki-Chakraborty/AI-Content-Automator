@@ -75,16 +75,43 @@ async function runPhase2() {
                 Competitor 1: ${competitorContent[0]}
                 Competitor 2: ${competitorContent[1]}
                 
-                Rewrite my article to be better, more professional, and use Markdown formatting.
-                Citations are NOT needed inside the text, I will add them at the bottom.
+                TASK: Rewrite my article to be high-quality, professional, and use Markdown formatting.
+                
+                IMPORTANT RULES:
+                1. DO NOT include any introductory or conversational text (e.g., "Here is the rewritten version").
+                2. Start the response IMMEDIATELY with the Article Title or the first paragraph.
+                3. Use clear headings (##) and bullet points where appropriate.
+                4. Do not mention the competitor articles in your response.
             `;
 
       const result = await model.generateContent(prompt);
-      const aiText = result.response.text();
+      if (!result.response || !result.response.text()) {
+        console.log(` AI failed to generate content for: ${article.title}`);
+        continue;
+      }
+      let cleanedAiText = result.response.text();
+
+      // --- CLEANING LOGIC (Must be inside the loop) ---
+      const fillers = [
+        "Here is a rewritten version",
+        "Here's your rewritten blog post",
+        "I have rewritten the article",
+        "I've enhanced the blog post",
+        "Sure, here is the professionally formatted",
+      ];
+
+      fillers.forEach((phrase) => {
+        if (cleanedAiText.includes(phrase)) {
+          const startOfContent = cleanedAiText.search(/\n\n|## |# /);
+          if (startOfContent !== -1) {
+            cleanedAiText = cleanedAiText.substring(startOfContent).trim();
+          }
+        }
+      });
 
       // --- D. PUBLISH VIA CRUD API ---
       console.log(" Publishing updated article via API...");
-      const finalContent = `${aiText}\n\n### References:\n- ${links[0]}\n- ${links[1]}`;
+      const finalContent = cleanedAiText;
 
       await axios.put(`${BASE_URL}/${article._id}`, {
         content: finalContent,

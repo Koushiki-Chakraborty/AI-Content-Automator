@@ -1,0 +1,24 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.article-title {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-title:hover {
+  text-decoration: none;
+}
+
+.article-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
