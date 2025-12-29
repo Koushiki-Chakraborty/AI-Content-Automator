@@ -1,5 +1,10 @@
 const Article = require("../models/Article");
 const scrapeLogic = require("../utils/scraper");
+const {
+  findCompetitors,
+  scrapeCompetitorContent,
+} = require("../utils/researcher");
+const { improveArticle } = require("../utils/aiHelper");
 
 // --- PHASE 1: SCRAPING LOGIC ---
 exports.triggerScrape = async (req, res) => {
