@@ -37,7 +37,7 @@ const startServer = async () => {
     app.use("/api/articles", articleRoutes);
 
     app.get("/", (req, res) => {
-      res.send("AI Content Automator Backend is running 🚀");
+      res.send("AI Content Automator Backend is running smoothly!");
     });
 
     const PORT = process.env.PORT || 5000;
