@@ -88,20 +88,18 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 ### Live Links
 
-**Frontend (Live):** [\[Vercel link\]](https://ai-content-automator.vercel.app)
+**Frontend (Live):** https://ai-content-automator.vercel.app
 
 - Open the frontend link to view and toggle between Original and AI-Improved articles.
 
-**Backend (API):** [\[Render Link\]](https://ai-content-automator.onrender.com)
-Sample API Endpoints:
+**Backend (API):** https://ai-content-automator.onrender.com
 
-1. Fetch all articles:
+- API Reference
 
-- https://ai-content-automator.onrender.com/api/articles
-
-2.  Fetch a single article by ID (use any `_id` returned from the previous endpoint):
-
-- https://ai-content-automator.onrender.com/api/articles/:id
+| Action | Endpoint | Method | Description |
+| :--- | :--- | :--- | :--- |
+| **Get All Articles** | `/api/articles` | `GET` | Returns a list of all original and AI-improved articles. |
+| **Get Single Article** | `/api/articles/:id` | `GET` | Returns full details of a specific article by its ID. |
 
 ### Author
 
