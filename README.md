@@ -26,6 +26,9 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 5. **Render:** The React frontend fetches articles and renders Markdown content for a clean reading experience.
 
+## Architecture & Data Flow Diagram
+![AI Content Automator Data Flow](./docs/data-flow-diagram.png)
+
 ### Local Setup Instructions
 
 **Prerequisites**
