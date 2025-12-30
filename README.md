@@ -4,31 +4,31 @@ A Full-Stack MERN Project for Intelligent Content Research and Transformation.
 
 ## Project Overview
 
-This project is an automated content pipeline that scrapes historical blog data, performs competitive research via real-time Google Search, and utilizes Large Language Models (LLMs) to enhance and modernize content.
+This project is an automated content pipeline that scrapes the oldest available articles, performs competitive research via real-time Google Search, and utilizes Large Language Models (LLMs) to enhance and modernize content.
 
 ### The 3-Phase Journey
 
-**_ Phase 1 (Data Foundation): _** Scrapes the 5 oldest articles from the BeyondChats blog and stores them in MongoDB with full CRUD API support.
+**Phase 1 (Data Foundation):** Scrapes the 5 oldest articles from the BeyondChats blog and stores them in MongoDB with full CRUD API support.
 
-**_ Phase 2 (AI Intelligence): _** A Node.js worker script searches Google for top-ranking competitors (Serper API), scrapes their content, and uses Gemini 2.5 Flash to rewrite the original articles into a professional, high-ranking format.
+**Phase 2 (AI Intelligence):** A Node.js worker script searches Google for top-ranking competitors (Serper API), scrapes their content, and uses Gemini 2.5 Flash to rewrite the original articles into a professional, high-ranking format.
 
-**_ Phase 3 (Professional UI): _** A responsive React dashboard that allows users to toggle between "Original" and "AI-Improved" versions of every article.
+**Phase 3 (Professional UI):** A responsive React dashboard that allows users to toggle between "Original" and "AI-Improved" versions of every article.
 
 ### Architecture & Data Flow
 
-**_ Server Init: _** On startup, the backend checks if the MongoDB database is empty.
+1. **Server Init:** On startup, the backend checks if the MongoDB database is empty.
 
-**_ Auto-Seed: _** If empty, it triggers the Phase 1 scraper to fetch historical data.
+2. **Auto-Seed:** If empty, it triggers the Phase 1 scraper to fetch historical data.
 
-**_ Research & Rewrite: _** The automation script (Phase 2) queries the Serper API for competitor links and calls Gemini for content synthesis.
+3. **Research & Rewrite:** The automation script (Phase 2) queries the Serper API for competitor links and calls Gemini for content synthesis.
 
-**_ Publish: _** The improved content is updated in the database via the Article CRUD APIs.
+4. **Publish:** The improved content is updated in the database via the Article CRUD APIs.
 
-**_ Render: _** The React frontend fetches articles and renders Markdown content for a clean reading experience.
+5. **Render:** The React frontend fetches articles and renders Markdown content for a clean reading experience.
 
 ### Local Setup Instructions
 
-**_ Prerequisites _**
+**Prerequisites**
 
 - Node.js (v16+)
 - MongoDB (Local or Atlas)
@@ -64,23 +64,23 @@ This project is an automated content pipeline that scrapes historical blog data,
 
 3. **Frontend Setup (PHASE-3)**
    ```
-    cd frontend
-    npm install
-    npm run dev
+       cd frontend
+       npm install
+       npm run dev
    ```
    The app will be available at http://localhost:5173
 
 ### Features & Technical Highlights
 
-**Zero-Config Startup:** Automated database seeding on server initialization.
+1. **Zero-Config Startup:** Automated database seeding on server initialization.
 
-**Smart Filtering:** AI script filters out non-article domains (YouTube, Amazon, etc.) to ensure high-quality research sources.
+2. **Smart Filtering:** AI script filters out non-article domains (YouTube, Amazon, etc.) to ensure high-quality research sources.
 
-**Markdown Support:** Full rendering of AI-generated headings, lists, and bold text using react-markdown.
+3. **Markdown Support:** Full rendering of AI-generated headings, lists, and bold text using react-markdown.
 
-**Responsive Design:** A professional grid layout that adapts seamlessly from desktop to mobile screens.
+4. **Responsive Design:** A professional grid layout that adapts seamlessly from desktop to mobile screens.
 
-**Toggle View:** Real-time switching between original scraped data and AI-enhanced content.
+5. **Toggle View:** Real-time switching between original scraped data and AI-enhanced content.
 
 ### Live Links
 
