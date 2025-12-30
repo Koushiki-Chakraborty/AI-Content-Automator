@@ -25,7 +25,7 @@ const startServer = async () => {
       cors({
         origin: [
           "http://localhost:5173",
-          "https://your-frontend-link.vercel.app",
+          "https://ai-content-automator.vercel.app",
         ],
         credentials: true,
       })
