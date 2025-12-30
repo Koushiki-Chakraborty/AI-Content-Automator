@@ -8,6 +8,26 @@ const runPhase1 = require("./utils/scraper");
 
 const app = express();
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ai-content-automator.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+
+// Routes
+app.use("/api/articles", articleRoutes);
+
+app.get("/", (req, res) => {
+  res.send("AI Content Automator Backend is running smoothly!");
+});
+
 const startServer = async () => {
   try {
     await connectDB(); // Connect to Database
@@ -20,25 +40,6 @@ const startServer = async () => {
       await runPhase1();
       console.log(" 5 Oldest articles successfully fetched and stored.");
     }
-
-    app.use(
-      cors({
-        origin: [
-          "http://localhost:5173",
-          "https://ai-content-automator.vercel.app",
-        ],
-        credentials: true,
-      })
-    );
-
-    app.use(express.json());
-
-    // Routes
-    app.use("/api/articles", articleRoutes);
-
-    app.get("/", (req, res) => {
-      res.send("AI Content Automator Backend is running smoothly!");
-    });
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
