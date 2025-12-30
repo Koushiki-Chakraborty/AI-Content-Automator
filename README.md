@@ -88,7 +88,9 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 ### Live Links
 
-**Frontend (Live):** [Your Vercel/Netlify Link]
+**Frontend (Live):** [\[Your Vercel/Netlify Link\]](https://ai-content-automator.vercel.app)
+
+- Open the frontend link to view and toggle between Original and AI-Improved articles.
 
 **Backend (API):** [\[Your Render/Railway Link\]](https://ai-content-automator.onrender.com)
 Sample API Endpoints:
