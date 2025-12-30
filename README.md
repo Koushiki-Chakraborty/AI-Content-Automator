@@ -27,6 +27,7 @@ This project is an automated content pipeline that scrapes the oldest available 
 5. **Render:** The React frontend fetches articles and renders Markdown content for a clean reading experience.
 
 ## Architecture & Data Flow Diagram
+
 ![AI Content Automator Data Flow](./docs/data-flow-diagram.png)
 
 ### Local Setup Instructions
@@ -89,7 +90,16 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 **Frontend (Live):** [Your Vercel/Netlify Link]
 
-**Backend (API):** [Your Render/Railway Link]
+**Backend (API):** [\[Your Render/Railway Link\]](https://ai-content-automator.onrender.com)
+Sample API Endpoints:
+
+1. Fetch all articles:
+
+- https://ai-content-automator.onrender.com/api/articles
+
+2.  Fetch a single article by ID (use any `_id` returned from the previous endpoint):
+
+- https://ai-content-automator.onrender.com/api/articles/:id
 
 ### Author
 
