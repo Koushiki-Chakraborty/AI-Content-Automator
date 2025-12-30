@@ -1,13 +1,16 @@
-import axios from 'axios';
+import axios from "axios";
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const api = axios.create({
-  baseURL: '/api', // Proxy will handle this or we can set full URL
+  baseURL: "/api",
   timeout: 10000,
 });
 
 export const fetchArticles = async () => {
   try {
-    const response = await api.get('/articles');
+    const response = await api.get("/articles");
     return response.data;
   } catch (error) {
     console.error("Error fetching articles:", error);
@@ -17,7 +20,7 @@ export const fetchArticles = async () => {
 
 export const fetchArticleById = async (id) => {
   try {
-    const response = await api.get(`/articles/${id}`); // Assuming backend supports this
+    const response = await api.get(`/articles/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching article ${id}:`, error);

@@ -20,7 +20,7 @@ async function runPhase2() {
 
       console.log(`\n Processing: "${article.title}"`);
 
-      // --- A. SEARCH GOOGLE ---
+      //  SEARCH GOOGLE
       console.log(" Searching Google for competitors...");
       const searchRes = await axios.post(
         "https://google.serper.dev/search",
@@ -53,7 +53,7 @@ async function runPhase2() {
         continue;
       }
 
-      // --- B. SCRAPE COMPETITORS ---
+      // SCRAPE COMPETITORS
       console.log(` Scraping competitors: ${links.join(", ")}`);
       let competitorContent = [];
       for (const url of links) {
@@ -66,7 +66,7 @@ async function runPhase2() {
         }
       }
 
-      // --- C. CALL LLM (GEMINI) ---
+      // CALL LLM (GEMINI)
       console.log(" Asking AI to rewrite article...");
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const prompt = `
@@ -91,7 +91,7 @@ async function runPhase2() {
       }
       let cleanedAiText = result.response.text();
 
-      // --- CLEANING LOGIC (Must be inside the loop) ---
+      // CLEANING LOGIC
       const fillers = [
         "Here is a rewritten version",
         "Here's your rewritten blog post",
@@ -109,7 +109,7 @@ async function runPhase2() {
         }
       });
 
-      // --- D. PUBLISH VIA CRUD API ---
+      // PUBLISH VIA CRUD API
       console.log(" Publishing updated article via API...");
       const finalContent = cleanedAiText;
 

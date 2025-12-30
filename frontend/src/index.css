@@ -67,14 +67,12 @@ button:focus-visible {
   }
 }
 
-/* Ensure the container doesn't hit the edges on mobile */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem; /* Increased mobile padding */
+  padding: 0 1.5rem;
 }
 
-/* RESPONSIVE GRID */
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -82,14 +80,13 @@ button:focus-visible {
   align-items: stretch;
 }
 
-/* MOBILE ADJUSTMENTS */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.75rem !important; /* Makes "Latest Articles" smaller on mobile */
+    font-size: 1.75rem !important;
   }
 
   .articles-grid {
-    grid-template-columns: 1fr; /* Single column for mobile phones */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }

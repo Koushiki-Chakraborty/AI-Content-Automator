@@ -6,7 +6,7 @@ const {
 } = require("../utils/researcher");
 const { improveArticle } = require("../utils/aiHelper");
 
-// --- PHASE 1: SCRAPING LOGIC ---
+// SCRAPING LOGIC
 exports.triggerScrape = async (req, res) => {
   try {
     const articles = await scrapeLogic();
@@ -21,7 +21,7 @@ exports.triggerScrape = async (req, res) => {
   }
 };
 
-// --- CRUD: GET ALL ---
+// GET ALL
 exports.getArticles = async (req, res) => {
   try {
     const articles = await Article.find();
@@ -31,7 +31,7 @@ exports.getArticles = async (req, res) => {
   }
 };
 
-// --- CRUD: GET SINGLE ---
+// GET SINGLE
 exports.getArticleById = async (req, res) => {
   try {
     const article = await Article.findById(req.params.id);
@@ -42,7 +42,7 @@ exports.getArticleById = async (req, res) => {
   }
 };
 
-// --- CRUD: UPDATE (Will be used in Phase 2) ---
+// UPDATE (Will be used in Phase 2)
 exports.updateArticle = async (req, res) => {
   try {
     const updatedArticle = await Article.findByIdAndUpdate(
@@ -56,7 +56,7 @@ exports.updateArticle = async (req, res) => {
   }
 };
 
-// --- CRUD: DELETE ---
+// DELETE
 exports.deleteArticle = async (req, res) => {
   try {
     await Article.findByIdAndDelete(req.params.id);
