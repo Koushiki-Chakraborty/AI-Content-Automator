@@ -2,9 +2,33 @@
 
 A Full-Stack MERN Project for Intelligent Content Research and Transformation.
 
+---
+
 ## Project Overview
 
 This project is an automated content pipeline that scrapes the oldest available articles, performs competitive research via real-time Google Search, and utilizes Large Language Models (LLMs) to enhance and modernize content.
+
+---
+
+### Live Links
+
+**Frontend (Live):** https://ai-content-automator.vercel.app
+
+- Open the frontend link to view and toggle between Original and AI-Improved articles.
+
+**Backend (API):** https://ai-content-automator.onrender.com
+
+## ⚠️ Important: Initial Load Note
+The backend is hosted on Render's Free Tier, which enters "hibernation" after 15 minutes of inactivity.
+
+If the frontend does not show articles immediately:
+
+1. Click the Backend Link to wake up the server.
+
+2. Wait about 40-60 seconds for the server to fully initialize, then refresh the frontend dashboard.
+
+3. Once awake, the AI automation and data fetching will be instantaneous.
+---
 
 ### The 3-Phase Journey
 
@@ -13,6 +37,8 @@ This project is an automated content pipeline that scrapes the oldest available 
 **Phase 2 (AI Intelligence):** A Node.js worker script searches Google for top-ranking competitors (Serper API), scrapes their content, and uses Gemini 2.5 Flash to rewrite the original articles into a professional, high-ranking format.
 
 **Phase 3 (Professional UI):** A responsive React dashboard that allows users to toggle between "Original" and "AI-Improved" versions of every article.
+
+---
 
 ### Architecture & Data Flow
 
@@ -26,9 +52,13 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 5. **Render:** The React frontend fetches articles and renders Markdown content for a clean reading experience.
 
+---
+
 ## Architecture & Data Flow Diagram
 
 ![AI Content Automator Data Flow](./docs/data-flow-diagram.png)
+
+---
 
 ### Local Setup Instructions
 
@@ -74,6 +104,8 @@ This project is an automated content pipeline that scrapes the oldest available 
    ```
    The app will be available at http://localhost:5173
 
+---
+
 ### Features & Technical Highlights
 
 1. **Zero-Config Startup:** Automated database seeding on server initialization.
@@ -86,13 +118,7 @@ This project is an automated content pipeline that scrapes the oldest available 
 
 5. **Toggle View:** Real-time switching between original scraped data and AI-enhanced content.
 
-### Live Links
-
-**Frontend (Live):** https://ai-content-automator.vercel.app
-
-- Open the frontend link to view and toggle between Original and AI-Improved articles.
-
-**Backend (API):** https://ai-content-automator.onrender.com
+---
 
 - API Reference
 
@@ -100,6 +126,8 @@ This project is an automated content pipeline that scrapes the oldest available 
 | :--- | :--- | :--- | :--- |
 | **Get All Articles** | `/api/articles` | `GET` | Returns a list of all original and AI-improved articles. |
 | **Get Single Article** | `/api/articles/:id` | `GET` | Returns full details of a specific article by its ID. |
+
+---
 
 ### Author
 
